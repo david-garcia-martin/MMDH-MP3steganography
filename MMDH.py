@@ -1,7 +1,7 @@
 from processbit import processbit
 from extractInformation import extractInformation
 from rearrange import rearrange
-from prueba import prueba
+from changebits import changebits
 if __name__ == '__main__':
     print(" \n====================== MMDH v.01 ====================== ")
 
@@ -19,5 +19,6 @@ if __name__ == '__main__':
 
     p = processbit(src_filename)
     extractInformation()
-    rearrange()
-    prueba(src_filename)
+    position = input("\nInsert the position of the bit you want to change:")
+    changebits(position)
+    #rearrange()

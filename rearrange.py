@@ -1,3 +1,5 @@
+import codecs
+
 from processbit import *
 
 class rearrange:
@@ -11,12 +13,15 @@ class rearrange:
         for key in processbit.final_dictionary.keys():
             if key=="Morralla_1":
                 morralla_1_hex = hex(int(processbit.final_dictionary[key],2))
-                f.write(morralla_1_hex[2:-1])
+                morralla_1_ascii = codecs.decode(morralla_1_hex[2:-1],"hex")
+                f.write(morralla_1_ascii)
         for key in sorted(processbit.final_dictionary.keys()):
             if key!="Morralla_1":
-                values = hex(int(processbit.final_dictionary[key],2))
-                f.write(values[2:-1])
+                values_hex = hex(int(processbit.final_dictionary[key],2))
+                values_ascii=codecs.decode(values_hex[2:-1],"hex")
+                f.write(values_ascii)
         f.close()
+
 
 
 
